@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './mock/index.ts'
+import './style.css';
+import 'antd/dist/antd.min.css';
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

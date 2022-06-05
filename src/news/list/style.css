@@ -1,0 +1,19 @@
+.list {
+  background: red;
+}
+
+.description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.newsTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commentCount{
+  font-size: 6px;
+}
