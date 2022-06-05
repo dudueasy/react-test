@@ -1,19 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext} from "react";
 import {List, Avatar} from 'antd';
 import './style.css';
 import { CommentOutlined } from "@ant-design/icons";
 import {Link} from "react-router-dom";
-import axios from "axios";
+import {NewsListContext} from "../context";
 
 export function NewsList() {
-  const [newsList, setNewsList] = useState([])
+  const [newsList] = useContext(NewsListContext);
 
-  useEffect(() => {
-    axios('/api/news/list').then(r => {
-      console.info(`r.data.list: `, r.data.list);
-      setNewsList(r.data.list)
-    })
-  }, [])
 
   const renderNewsTitle = (item: any) => {
     return <div className={'newsTitle'}>
@@ -29,7 +23,6 @@ export function NewsList() {
   const renderNewsDescription = (item: any) => {
     return <div className={'description'}>{item.description} </div>
   }
-
 
   return <div>
     <header>

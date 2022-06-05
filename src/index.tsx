@@ -22,7 +22,7 @@ root.render(
           <Route path={"list"} element={<NewsLayout><NewsList/></NewsLayout>}/>
           <Route path={"detail"} element={<NewsLayout><NewsDetail/></NewsLayout>}/>
           {/* backup */}
-          <Route path="*" element={<Navigate to={'list'} replace={true}/>}/>
+          <Route path="*" element={<NewsLayout><Navigate to={'list'} replace={true}/></NewsLayout>}/>
         </Route>
         {/* backup */}
         <Route path="*" element={<Navigate to={'news/list'} replace={true}/>}/>
