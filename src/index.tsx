@@ -4,14 +4,24 @@ import App from './App';
 import './mock/index.ts'
 import './style.css';
 import 'antd/dist/antd.min.css';
-
+import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/news/'}>
+          <Route path={"list"} element={<App/>}/>
+        </Route>
+        <Route path="*" element={<Navigate to={'news/list'} replace={true}/>}/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
-);
+)
+

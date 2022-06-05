@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {NewsList} from "./news/list";
+import {NewsList} from "./page/news/list";
 
 function App() {
   const [newsList, setNewsList] = useState([])
