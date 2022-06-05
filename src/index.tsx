@@ -5,6 +5,7 @@ import './mock/index.ts'
 import './style.css';
 import 'antd/dist/antd.min.css';
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
+import {NewsDetail} from "./page/news/detail";
 
 
 const root = ReactDOM.createRoot(
@@ -18,7 +19,11 @@ root.render(
       <Routes>
         <Route path={'/news/'}>
           <Route path={"list"} element={<App/>}/>
+          <Route path={"detail"} element={<NewsDetail/>}/>
+          {/* backup */}
+          <Route path="*" element={<Navigate to={'list'} replace={true}/>}/>
         </Route>
+        {/* backup */}
         <Route path="*" element={<Navigate to={'news/list'} replace={true}/>}/>
       </Routes>
     </BrowserRouter>

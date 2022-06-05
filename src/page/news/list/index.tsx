@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {List, Avatar} from 'antd';
 import './style.css';
 import { CommentOutlined } from "@ant-design/icons";
+import {Link} from "react-router-dom";
 
 export function NewsList(props: { list: any[] }) {
   const list = props.list;
@@ -9,7 +10,7 @@ export function NewsList(props: { list: any[] }) {
 
   let getNewsTitle = (item: any) => {
     return <div className={'newsTitle'}>
-      <div><a href=''>{item.title}</a></div>
+      <div><Link to={`/news/detail?id=${item.id}`}>{item.title}</Link></div>
       <div>
         <CommentOutlined style={{marginRight: 4}}/>
         <span className={'commentCount'}>{item.comments.length}</span>
