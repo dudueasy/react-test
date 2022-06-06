@@ -1,15 +1,15 @@
 import {Avatar} from "antd";
 import React from "react";
 
-export function NewsCreator(props: { news: any }) {
+export function Creator(props: { creatorInfo: any }) {
   return <div className={"creator"}>
     <Avatar src="https://joeschmoe.io/api/v1/random" className={"avatar"}/>
     <div>
       <div>
-        {props.news.creator}
+        {props.creatorInfo.creator}
       </div>
       <div>
-        {props.news.create_at}
+        {props.creatorInfo.create_at}
       </div>
     </div>
   </div>;

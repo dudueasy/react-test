@@ -1,14 +1,17 @@
 import {useSearchParams} from "react-router-dom";
-import React, {Fragment, useContext, useEffect, useMemo} from "react";
+import React, {Fragment, useContext, useMemo, useRef} from "react";
 import {NewsListContext} from "../context";
 import './style.css';
-import {NewsCreator} from "./NewsCreator";
+import {Creator} from "./Creator";
 import {CommentOutlined} from "@ant-design/icons";
 import {Comments} from "./Comments";
 
 export const NewsDetail = () => {
   const [searchParams] = useSearchParams();
   const [newsList] = useContext(NewsListContext);
+
+  const commentInputRef = useRef<HTMLTextAreaElement | null>(null)
+
   const id = searchParams.get('id')
 
   const news = useMemo(() => {
@@ -17,10 +20,20 @@ export const NewsDetail = () => {
     })
   }, [id, newsList])
 
+  const creatorInfo = {
+    creator: news?.creator,
+    create_at: news?.create_at
+  }
+
   const title = news?.title
   const description = news?.description;
 
-  function onCommentsClick() { }
+  function onCommentsClick() {
+    if (commentInputRef.current) {
+      commentInputRef.current.focus();
+      document.querySelector('.comments')?.scrollIntoView({behavior: 'smooth'});
+    }
+  }
 
   return (
     <Fragment>
@@ -34,12 +47,11 @@ export const NewsDetail = () => {
                 <span className={'commentCount'}>{news.comments.length}</span>
               </div>
             </div>
-            <NewsCreator news={news}/>
+            <Creator creatorInfo={creatorInfo}/>
             <section className={'content'}>
               {description}
             </section>
-
-            <Comments comments={news.comments}/>
+            <Comments comments={news.comments} ref={commentInputRef}/>
           </div>
 
         </div>

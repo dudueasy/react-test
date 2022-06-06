@@ -1,5 +1,8 @@
-.comment {
-    padding: 16px;
-    border: 1px dashed lightgray;
-    border-radius: 2px;
+
+.comments {
+    transition: all 0.5s;
+}
+
+.comments.highlighted {
+    background: rgba(0,0,0,0.1);
 }
