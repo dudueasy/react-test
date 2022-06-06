@@ -1,0 +1,8 @@
+.descriptionWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.description.overflowed {
+    width: calc( 100% - 60px );
+}

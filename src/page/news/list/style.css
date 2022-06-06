@@ -1,6 +1,15 @@
-.list {
-  background: red;
+.newsDetail {
+  margin: 24px;
+  padding: 16px;
+  border: 1px dashed lightgray;
+  border-radius: 2px;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .description {
   white-space: nowrap;
@@ -16,4 +25,12 @@
 
 .commentCount{
   font-size: 6px;
+}
+
+.commentIcon{
+  cursor: pointer;
+}
+
+.content {
+  margin-bottom: 24px;
 }
