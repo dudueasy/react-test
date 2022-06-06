@@ -1,0 +1,10 @@
+
+.creator{
+  margin-bottom: 24px;
+  margin-left: 0;
+  display: flex;
+}
+
+.avatar {
+  margin-right: 16px;
+}
