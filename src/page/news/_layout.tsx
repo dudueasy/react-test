@@ -1,16 +1,18 @@
-import React, {useEffect, useState} from "react";
-import {NewsListContextProvider} from "./context";
+import React, {useContext, useEffect} from "react";
+import {NewsListContext, withNewsListContext} from "./context";
 import axios from "axios";
+import {Outlet} from "react-router-dom";
 
-export const NewsLayout: React.FC<any> = (props) => {
-  const [newsList, setNewsList] = useState([]);
+const RawLayout = React.memo((props: any) => {
+  const [newsList, setNewsList] = useContext(NewsListContext)
 
   useEffect(() => {
     axios('/api/news/list').then(r => {
-      console.info(`r.data.list: `, r.data.list);
       setNewsList(r.data.list)
     })
-  }, [setNewsList])
+  }, [])
 
-  return <NewsListContextProvider value={[newsList, setNewsList]}>{props.children}</NewsListContextProvider>
-}
+  return <div><Outlet/></div>
+})
+
+export const NewsLayout: React.FC<any> = withNewsListContext(RawLayout)
